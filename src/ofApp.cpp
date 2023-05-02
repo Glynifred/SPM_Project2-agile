@@ -64,6 +64,10 @@ void ofApp::keyReleased(int key){
         m_runState = RUN_STATE::Reset_Pending; // queue the reset; complete this update
         break;
 
+    case 'f':  // Fullscreen 
+        ofToggleFullscreen();
+        break;
+
     default:    // ignore
         break;
     }
