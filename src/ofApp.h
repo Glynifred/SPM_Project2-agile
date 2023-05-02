@@ -33,6 +33,8 @@ public:
 		_Num_States
 	};
 
+	ofImage background;
+
 private:
 	const int		BOIDS_COUNT {300 };
 	const int		FRAME_DELAY_MS { 1 };

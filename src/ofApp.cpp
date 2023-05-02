@@ -12,6 +12,8 @@ void ofApp::setup()
 
     // set to running state
     m_runState = RUN_STATE::Running;
+
+    background.load("background.jpg");
 }
 
 //--------------------------------------------------------------
@@ -36,6 +38,7 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
+    background.draw(0, 0, ofGetWidth(), ofGetHeight());
     m_scene.draw();
 }
 
