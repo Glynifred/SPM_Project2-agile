@@ -9,8 +9,8 @@ int main() {
 	// pass in width and height too:
 	ofSetupOpenGL(1024, 768, OF_WINDOW);			// <-------- setup the GL context
 	
-	// target 60fps
-	ofSetFrameRate(60);
+	//frame rate to 30 increasing amount of boids before lag to around 1000
+	ofSetFrameRate(30);
 
 	// run until app closed
 	ofRunApp(new ofApp());

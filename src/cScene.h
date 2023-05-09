@@ -16,6 +16,16 @@ public:
     void    draw();
     int     getWidth() const { return m_sceneWidth; }
     int     getHeight() const { return m_scenHeight; }
+    //applies change in boid num
+    void    changenum(int boidnum);
+    //applies colour change
+    void    changecolour(int red, int green, int blue);
+    //int to hold of colour
+    int red = 70;
+    int green = 130;
+    int blue = 180;
+    //testing spawn
+    void    spawn(int x, int y);
 
 
 private:

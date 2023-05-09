@@ -30,9 +30,11 @@ public:
 		Running,
 		Paused,
 		Reset_Pending,
+		change,
 		_Num_States
 	};
-
+	//variable for spawning more boids
+	int boidnum = 300;
 	ofImage background;
 	ofSoundPlayer music;
 

@@ -14,10 +14,10 @@ public:
     cBoid(int xpos, int ypos);
     virtual ~cBoid() = default;
     virtual void move();   
-    virtual void draw();   
+    virtual void draw(int red, int green, int blue);
 
 protected:
-    static const int    BOIDS_MAX{ 1000 };
+    static const int    BOIDS_MAX{ 1300 };
     // draw the velocity line/beak?
     static bool   drawVelocityLine;
 

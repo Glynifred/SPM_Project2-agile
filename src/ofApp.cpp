@@ -30,6 +30,11 @@ void ofApp::update()
         m_scene.reset();
         m_runState = RUN_STATE::Running;
     }
+    if (m_runState == RUN_STATE::change)
+    {
+        m_scene.changenum(boidnum);
+        m_runState = RUN_STATE::Running;
+    }
     if (m_runState != RUN_STATE::Running)
         return;
 
@@ -43,6 +48,7 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
+    ofSetColor(ofColor::blueSteel);
     background.draw(0, 0, ofGetWidth(), ofGetHeight());
     m_scene.draw();
 }
@@ -73,6 +79,52 @@ void ofApp::keyReleased(int key){
         ofToggleFullscreen();
         break;
 
+    case '1':
+        boidnum = 100;
+        m_runState = RUN_STATE::change; // queues change so no errors occur with update
+        break;
+    case '2':
+        boidnum = 200;
+        m_runState = RUN_STATE::change; // queues change so no errors occur with update
+        break;
+    case '3':
+        boidnum = 300;
+        m_runState = RUN_STATE::change; // queues change so no errors occur with update
+        break;
+    case '4':
+        boidnum = 400;
+        m_runState = RUN_STATE::change; // queues change so no errors occur with update
+        break;
+    case '5':
+        boidnum = 500;
+        m_runState = RUN_STATE::change; // queues change so no errors occur with update
+        break;
+    case '6':
+        boidnum = 600;
+        m_runState = RUN_STATE::change; // queues change so no errors occur with update
+        break;
+    case '7':
+        boidnum = 700;
+        m_runState = RUN_STATE::change; // queues change so no errors occur with update
+        break;
+    case '8':
+        boidnum = 800;
+        m_runState = RUN_STATE::change; // queues change so no errors occur with update
+        break;
+    case '9':
+        boidnum = 900;
+        m_runState = RUN_STATE::change; // queues change so no errors occur with update
+        break;
+    case '0':
+        boidnum = 1000;
+        m_runState = RUN_STATE::change; // queues change so no errors occur with update
+        break;
+    case 'b':
+        m_scene.changecolour(70, 130, 180);
+        break;
+    case 'g':
+        m_scene.changecolour(50, 205, 50);
+        break;
     default:    // ignore
         break;
     }
@@ -86,7 +138,8 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    //calls a cscene function of spawn
+    m_scene.spawn(x, y);
 }
 
 //--------------------------------------------------------------
