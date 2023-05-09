@@ -13,7 +13,12 @@ void ofApp::setup()
     // set to running state
     m_runState = RUN_STATE::Running;
 
+
+    music.load("Kevin MacLeod - Autumn Day.mp3");//credit to Kevin MacLeod
     background.load("background.jpg");
+
+    music.setLoop(true);
+    music.play();
 }
 
 //--------------------------------------------------------------

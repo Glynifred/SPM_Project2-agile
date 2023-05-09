@@ -34,6 +34,7 @@ public:
 	};
 
 	ofImage background;
+	ofSoundPlayer music;
 
 private:
 	const int		BOIDS_COUNT {300 };
