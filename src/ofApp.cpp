@@ -119,13 +119,13 @@ void ofApp::keyReleased(int key){
         boidnum = 1000;
         m_runState = RUN_STATE::change; // queues change so no errors occur with update
         break;
-    case 'b'://sets colour to 
+    case 'b'://sets colour to blue steel
         red = 70;
         green = 130;
         blue = 180;
         m_scene.changecolour(red, green, blue);
         break;
-    case 'g':
+    case 'g'://sets colour to green
         red = 50;
         green = 205;
         blue = 50;
