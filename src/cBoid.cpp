@@ -119,15 +119,15 @@ void cBoid::move()
 
 
 //--------------------------------------------------------------
-void cBoid::draw()
+void cBoid::draw(int red, int green, int blue)
 {
     // draw filled circle - interior
     ofFill();
-    ofSetColor(m_fillColor);
+    ofSetColor(red, green, blue);
     ofDrawCircle(this->m_pos.x, this->m_pos.y, m_drawSize);
     // border
     ofNoFill();
-    ofSetColor(m_lineColor);
+    ofSetColor(red, green, blue);
     ofDrawCircle(this->m_pos.x, this->m_pos.y, m_drawSize);
 
     if (drawVelocityLine > 0)

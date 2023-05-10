@@ -59,6 +59,7 @@ void cScene::reset()
 }
 
 //--------------------------------------------------------------
+//--------------------------------------------------------------
 // draw all the Boids
 void    cScene::draw()
 {
@@ -67,7 +68,7 @@ void    cScene::draw()
 
     for (auto& b : m_boids)
     {
-        b->draw();
+        b->draw(red, green, blue);
     }
 }
 
@@ -78,6 +79,48 @@ void    cScene::update()
     for (auto& b : m_boids)
     {
         b->move();
+    }
+}
+
+//changes colour values of all boids
+void    cScene::changecolour(int ired, int igreen, int iblue)
+{
+    red = ired;
+    green = igreen;
+    blue = iblue;
+}
+
+//trying to get spawn on click
+void cScene::spawn(int x, int y)
+{
+    cBoid::sp_boids = &m_boids;
+
+    auto midX = x;
+    auto midY = y;
+
+    m_boids.push_back(cBoid::spawn(midX, midY));
+
+}
+void    cScene::changenum(int boidnum)
+{
+    //deletes old boids
+    for (auto i = 0; i < m_boids.size(); i++)
+    {
+        if (m_boids[i] != nullptr)
+        {
+            delete m_boids[i];
+            m_boids[i] = nullptr;
+        }
+    }
+    m_boids.clear();
+    //creates new boids up to new amount
+    auto midX = ofGetWidth() / 2;
+    auto midY = ofGetHeight() / 2;
+
+    for (int i = boidnum; i--;)
+    {
+        m_boids.push_back(cBoid::spawn(midX, midY));
+        //m_boids.push_back(new cBoid{ midX, midY });
     }
 }
 
