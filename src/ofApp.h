@@ -37,6 +37,10 @@ public:
 	int boidnum = 300;
 	ofImage background;
 	ofSoundPlayer music;
+	//int to hold of colour
+	int red = 70;
+	int green = 130;
+	int blue = 180;
 
 private:
 	const int		BOIDS_COUNT {300 };

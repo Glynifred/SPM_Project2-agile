@@ -120,10 +120,40 @@ void ofApp::keyReleased(int key){
         m_runState = RUN_STATE::change; // queues change so no errors occur with update
         break;
     case 'b':
-        m_scene.changecolour(70, 130, 180);
+        red = 70;
+        green = 130;
+        blue = 180;
+        m_scene.changecolour(red, green, blue);
         break;
     case 'g':
-        m_scene.changecolour(50, 205, 50);
+        red = 50;
+        green = 205;
+        blue = 50;
+        m_scene.changecolour(red,green,blue);
+        break;
+    case 'p':
+        red = red + (255/10);
+        m_scene.changecolour(red, green, blue);
+        break;
+    case 'l':
+        red = red - (255 / 10);
+        m_scene.changecolour(red, green, blue);
+        break;
+    case 'o':
+        green = green + (255 / 10);
+        m_scene.changecolour(red, green, blue);
+        break;
+    case 'k':
+        green = green - (255 / 10);
+        m_scene.changecolour(red, green, blue);
+        break;
+    case 'i':
+        blue = blue + (255 / 10);
+        m_scene.changecolour(red, green, blue);
+        break;
+    case 'j':
+        blue = blue - (255 / 10);
+        m_scene.changecolour(red, green, blue);
         break;
     default:    // ignore
         break;
