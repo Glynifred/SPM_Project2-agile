@@ -131,7 +131,7 @@ void ofApp::keyReleased(int key){
         blue = 50;
         m_scene.changecolour(red,green,blue);
         break;
-    case 'p':
+    case 'p'://increases red
         red = red + (255/10);
         if (red > 255)
         {
@@ -139,7 +139,7 @@ void ofApp::keyReleased(int key){
         }
         m_scene.changecolour(red, green, blue);
         break;
-    case 'l':
+    case 'l'://decreases red
         red = red - (255 / 10);
         if (red < 0)
         {
@@ -147,7 +147,7 @@ void ofApp::keyReleased(int key){
         }
         m_scene.changecolour(red, green, blue);
         break;
-    case 'o':
+    case 'o'://increase green
         green = green + (255 / 10);
         if (green > 255)
         {
@@ -155,7 +155,7 @@ void ofApp::keyReleased(int key){
         }
         m_scene.changecolour(red, green, blue);
         break;
-    case 'k':
+    case 'k'://decrease green
         green = green - (255 / 10);
         if (green < 0)
         {
@@ -163,20 +163,26 @@ void ofApp::keyReleased(int key){
         }
         m_scene.changecolour(red, green, blue);
         break;
-    case 'i':
+    case 'i'://increases blue
         blue = blue + (255 / 10);
         if (blue > 255)
         {
-            green = 255;
+            blue = 255;
         }
         m_scene.changecolour(red, green, blue);
         break;
-    case 'j':
+    case 'j'://decreases blue
         blue = blue - (255 / 10);
         if (blue < 0)
         {
             blue = 0;
         }
+        m_scene.changecolour(red, green, blue);
+        break;
+    case 'h'://randomises colours
+        red = 255 / 100 * (rand() % 100);
+        green = 255 / 100 * (rand() % 100);
+        blue = 255 / 100 * (rand() % 100);
         m_scene.changecolour(red, green, blue);
         break;
     default:    // ignore
