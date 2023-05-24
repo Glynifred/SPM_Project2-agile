@@ -23,6 +23,11 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
+	int simulationSpeed;
+	bool paused;
+	ofRectangle increaseButton;
+	ofRectangle decreaseButton;
+	ofRectangle pauseButton;
 
 	enum class RUN_STATE
 	{

@@ -19,6 +19,10 @@ void ofApp::setup()
 
     music.setLoop(true);
     music.play();
+    increaseButton.set(ofGetWidth() - 100, ofGetHeight() - 30, 80, 20); //increase speed button
+    decreaseButton.set(ofGetWidth() - 180, ofGetHeight() - 30, 80, 20); //decrease speed button
+    pauseButton.set(20, ofGetHeight() - 30, 50, 20); //decrease speed button
+    simulationSpeed = 5; //default speed
 }
 
 //--------------------------------------------------------------
@@ -51,6 +55,24 @@ void ofApp::draw()
     ofSetColor(ofColor::blueSteel);
     background.draw(0, 0, ofGetWidth(), ofGetHeight());
     m_scene.draw();
+    ofSetColor(ofColor::blueSteel);
+    background.draw(0, 0, ofGetWidth(), ofGetHeight());
+    m_scene.draw();
+
+    //draw increase and decrease buttons
+    ofSetColor(ofColor::white);
+    ofDrawRectangle(increaseButton);
+    ofDrawRectangle(decreaseButton);
+    ofDrawRectangle(pauseButton);
+
+    //dtaw button labels
+    ofSetColor(ofColor::white);
+    ofDrawBitmapString("Increase", increaseButton.x + 5, increaseButton.y + 15);
+    ofDrawBitmapString("Decrease", decreaseButton.x + 5, decreaseButton.y + 15);
+    ofDrawBitmapString("Pause", pauseButton.x + 5, pauseButton.y + 15);
+
+    //draw current speed
+    ofDrawBitmapString("Simulation Speed: " + std::to_string(simulationSpeed), ofGetWidth()-350, ofGetHeight() - 15);
 }
 
 //--------------------------------------------------------------
@@ -209,7 +231,28 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    if (increaseButton.inside(x, y)) {
+        simulationSpeed++;
+        if (simulationSpeed > 10) { // 10 is the max speed
+            simulationSpeed = 10;
+        }
+        ofSetFrameRate(simulationSpeed*6);
+    }
+    else if (decreaseButton.inside(x, y)) {
+        simulationSpeed--;
+        if (simulationSpeed < 1) { //1 is the min speed
+            simulationSpeed = 1;
+        }
+        ofSetFrameRate(simulationSpeed*6);
+    }
+    else if (pauseButton.inside(x, y)) {
+        if (m_runState == RUN_STATE::Running) {
+            m_runState = RUN_STATE::Paused;
+        }
+        else if (m_runState == RUN_STATE::Paused) {
+            m_runState = RUN_STATE::Running;
+        }
+    }
 }
 
 //--------------------------------------------------------------
