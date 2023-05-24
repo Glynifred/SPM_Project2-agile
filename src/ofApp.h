@@ -28,6 +28,7 @@ public:
 	ofRectangle increaseButton;
 	ofRectangle decreaseButton;
 	ofRectangle pauseButton;
+	ofRectangle musicButton;
 
 	enum class RUN_STATE
 	{
