@@ -1,7 +1,5 @@
 #include "ofApp.h"
 
-
-//--------------------------------------------------------------
 void ofApp::setup()
 {
     // seed random number generator
