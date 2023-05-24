@@ -65,7 +65,7 @@ void ofApp::draw()
     ofDrawRectangle(decreaseButton);
     ofDrawRectangle(pauseButton);
 
-    //dtaw button labels
+    //draw button labels
     ofSetColor(ofColor::white);
     ofDrawBitmapString("Increase", increaseButton.x + 5, increaseButton.y + 15);
     ofDrawBitmapString("Decrease", decreaseButton.x + 5, decreaseButton.y + 15);
@@ -233,14 +233,14 @@ void ofApp::mousePressed(int x, int y, int button){
 void ofApp::mouseReleased(int x, int y, int button){
     if (increaseButton.inside(x, y)) {
         simulationSpeed++;
-        if (simulationSpeed > 10) { // 10 is the max speed
+        if (simulationSpeed > 10) {// 10 is the max speed
             simulationSpeed = 10;
         }
         ofSetFrameRate(simulationSpeed*6);
     }
     else if (decreaseButton.inside(x, y)) {
         simulationSpeed--;
-        if (simulationSpeed < 1) { //1 is the min speed
+        if (simulationSpeed < 1) {//1 is the min speed
             simulationSpeed = 1;
         }
         ofSetFrameRate(simulationSpeed*6);
